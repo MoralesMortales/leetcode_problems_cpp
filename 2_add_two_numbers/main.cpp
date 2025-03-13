@@ -15,13 +15,16 @@ public:
 
     std::vector<int> values;
 
-    ListNode *current_A = baseNode_A;
-    ListNode *current_B = baseNode_B;
+    ListNode *current_A = l1;
+    ListNode *current_B = l2;
 
     while (current_B != nullptr) {
       values.push_back(current_B->val);
       current_B = current_B->next;
     }
+
+    std::reverse(values.begin(), values.end());
+
   }
 };
 
@@ -34,13 +37,7 @@ int main(int argc, char *argv[]) {
   ListNode *node_B1 = new ListNode(3);
 
   baseNode_A->next = node_A1;
-
   baseNode_B->next = node_B1;
-
-  std::reverse(values.begin(), values.end());
-
-  delete baseNode_A;
-  delete node_A1;
 
   return 0;
 }
